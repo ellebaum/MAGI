@@ -46,7 +46,7 @@ def get_system_prompt(personality: str):
 def get_answer(question: str, personality: str, key: str):
     openai.api_key = key
     response = openai.ChatCompletion.create(
-        model='gpt-4',
+        model='gpt-4o-mini',
         messages=[
             {'role': 'system', 'content': get_system_prompt(personality)},
             {'role': 'user', 'content': question},
@@ -59,7 +59,7 @@ def get_answer(question: str, personality: str, key: str):
 def classify_answer(question: str, personality: str, answer: str, key: str):
     openai.api_key = key
     response = openai.ChatCompletion.create(
-        model='gpt-4',
+        model='gpt-4o-mini',
         messages=[
             {'role': 'system', 'content': get_system_prompt(personality)},
             {'role': 'user', 'content': question},
