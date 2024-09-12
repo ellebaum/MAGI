@@ -5,11 +5,7 @@ import re
 def is_yes_or_no_question(question: str, key: str):
     openai.api_key = key
     response = openai.ChatCompletion.create(
-        model='gpt-4',
-        logit_bias={
-            9642: 100,  # Yes
-            2822: 100  # No
-        },
+        model='gpt-4o-mini',
         max_tokens=1,
         messages=[
             {'role': 'system', 'content': 'You answer with a simple "yes" or "no".'},
